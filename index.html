@@ -189,6 +189,18 @@
             font-size: 0.9rem;
         }
 
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            color: #00e5ff;
+            text-decoration: underline;
+        }
+
         /* Animations */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
@@ -265,8 +277,8 @@
         <div class="container">
             <p>&copy; 2026 Wingul Team. All rights reserved.</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">
-                <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
-                <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 10px;">Terms of Service</a>
+                <a href="privacy/" class="footer-link">개인정보처리방침</a> |
+                <a href="#" class="footer-link">Terms of Service</a>
             </p>
         </div>
     </footer>
@@ -296,4 +308,3 @@
     </script>
 </body>
 </html>
-
