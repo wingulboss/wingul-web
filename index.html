@@ -6,17 +6,12 @@
     <title>윙글 키보드 (Wingul Keyboard) - 혁신적인 한글 입력의 시작</title>
     <meta name="description" content="윙글 키보드는 다양한 배열, 스크린 덱, 강력한 커스터마이징 기능을 제공하는 차세대 안드로이드 한글 키보드입니다.">
     <meta name="keywords" content="윙글, 키보드, 한글키보드, 천지인, 쿼티, 스크린덱, 안드로이드키보드">
-    
-    <!-- Open Graph -->
     <meta property="og:title" content="윙글 키보드 (Wingul Keyboard)">
     <meta property="og:description" content="혁신적인 한글 입력 경험을 선사하는 윙글 키보드.">
     <meta property="og:type" content="website">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --bg-color: #050505;
@@ -27,13 +22,7 @@
             --text-muted: #a0a0a0;
             --accent-glow: 0 8px 32px rgba(124, 77, 255, 0.2);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -42,14 +31,34 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 6px;
+            padding: 6px;
+            background: rgba(5, 5, 5, 0.72);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            backdrop-filter: blur(12px);
         }
-
-        /* Hero Section */
+        .language-toggle button {
+            border: 0;
+            background: transparent;
+            color: var(--text-muted);
+            font: inherit;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .language-toggle button.active {
+            color: #000;
+            background: var(--primary-gradient);
+        }
         header {
             height: 100vh;
             display: flex;
@@ -59,40 +68,28 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero-bg {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 140%;
-            height: 140%;
+            width: 140%; height: 140%;
             background: radial-gradient(circle at center, rgba(124, 77, 255, 0.15) 0%, transparent 70%);
             z-index: -1;
             filter: blur(80px);
             animation: pulse 10s infinite alternate;
         }
-
         @keyframes pulse {
             from { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
             to { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
         }
-
-        .logo-container {
-            margin-bottom: 2rem;
-            animation: fadeInDown 1s ease-out;
-        }
-
+        .logo-container { margin-bottom: 2rem; animation: fadeInDown 1s ease-out; }
         .app-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 28px;
+            width: 120px; height: 120px; border-radius: 28px;
             box-shadow: var(--accent-glow);
             border: 1px solid var(--border-color);
             background: var(--surface-color);
             padding: 10px;
         }
-
         h1 {
             font-family: 'Outfit', sans-serif;
             font-size: 4rem;
@@ -103,15 +100,13 @@
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
-
         .tagline {
             font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto 2.5rem;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
-
         .cta-button {
             display: inline-block;
             padding: 16px 40px;
@@ -124,31 +119,22 @@
             box-shadow: 0 10px 20px rgba(0, 229, 255, 0.2);
             animation: fadeInUp 1s ease-out 0.6s both;
         }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4);
-        }
-
-        /* Features Section */
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4); }
         .features {
             padding: 120px 0;
             background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.02), transparent);
         }
-
         .section-title {
             text-align: center;
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             margin-bottom: 4rem;
         }
-
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
-
         .feature-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
@@ -157,30 +143,10 @@
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 229, 255, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* Footer */
+        .feature-card:hover { transform: translateY(-10px); border-color: rgba(0, 229, 255, 0.3); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
+        .feature-card p { color: var(--text-muted); font-size: 1rem; }
         footer {
             padding: 80px 0;
             text-align: center;
@@ -188,85 +154,102 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
-
-        .footer-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer-link:hover,
-        .footer-link:focus-visible {
-            color: #00e5ff;
-            text-decoration: underline;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
+        .footer-link { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
+        .footer-link:hover, .footer-link:focus-visible { color: #00e5ff; text-decoration: underline; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .tagline { font-size: 1.1rem; }
+            .language-toggle { top: 12px; right: 12px; }
         }
     </style>
 </head>
 <body>
-
     <div class="hero-bg"></div>
+
+    <div class="language-toggle" aria-label="Language selector">
+        <button type="button" data-lang-button="ko" class="active">한국어</button>
+        <button type="button" data-lang-button="en">English</button>
+    </div>
 
     <header id="heroSection">
         <div class="container text-center">
             <div class="logo-container">
                 <img src="wingul-logo.png" alt="윙글 키보드 로고" class="app-logo" id="appLogo">
             </div>
-            <h1>윙글 키보드</h1>
-            <p class="tagline">당신의 타이핑 습관에 맞춘 차세대 커스텀 키보드. 혁신적인 한글 입력기 '윙글'을 만나보세요.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.jopd.wingul2&amp;hl=ko" class="cta-button">무료로 시작하기</a>
+            <h1 data-ko="윙글 키보드" data-en="Wingul Keyboard">윙글 키보드</h1>
+            <p class="tagline"
+               data-ko="당신의 타이핑 습관에 맞춘 차세대 커스텀 키보드. 혁신적인 한글 입력기 '윙글'을 만나보세요."
+               data-en="A next-generation custom keyboard built around the way you type. Meet Wingul, a smarter Korean input experience.">당신의 타이핑 습관에 맞춘 차세대 커스텀 키보드. 혁신적인 한글 입력기 '윙글'을 만나보세요.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.jopd.wingul2&amp;hl=ko" class="cta-button"
+               data-ko="무료로 시작하기" data-en="Get Started for Free">무료로 시작하기</a>
         </div>
     </header>
 
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">주요 기능</h2>
+            <h2 class="section-title" data-ko="주요 기능" data-en="Key Features">주요 기능</h2>
             <div class="feature-grid">
                 <div class="feature-card">
+                    <span class="feature-icon">🛠️</span>
+                    <h3 data-ko="무제한 커스텀 키보드" data-en="Unlimited Keyboard Customization">무제한 커스텀 키보드</h3>
+                    <p data-ko="키의 위치와 기능을 자유롭게 설정해 나만의 맞춤형 키보드를 만들어보세요."
+                       data-en="Freely customize key positions and functions to build a keyboard that fits you perfectly.">키의 위치와 기능을 자유롭게 설정해 나만의 맞춤형 키보드를 만들어보세요.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">✨</span>
+                    <h3 data-ko="기분 좋은 텍스트 어시스트" data-en="Smart Text Assist">기분 좋은 텍스트 어시스트</h3>
+                    <p data-ko="한글과 영어 자동완성·자동교정, 단축어와 사용자 사전으로 더 편리하게 입력하세요."
+                       data-en="Type more comfortably with Korean and English autocomplete, autocorrect, shortcuts, and a personal dictionary.">한글과 영어 자동완성·자동교정, 단축어와 사용자 사전으로 더 편리하게 입력하세요.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🤖</span>
+                    <h3 data-ko="온디바이스 AI 교정 & 번역 (Beta)" data-en="On-Device AI Proofreading & Translation (Beta)">온디바이스 AI 교정 & 번역 (Beta)</h3>
+                    <p data-ko="로컬 AI 모델을 설치해 텍스트 교정과 번역을 무료로, 내 기기에서 안전하게 처리하세요."
+                       data-en="Install a local AI model to proofread and translate text for free, securely on your own device.">로컬 AI 모델을 설치해 텍스트 교정과 번역을 무료로, 내 기기에서 안전하게 처리하세요.</p>
+                </div>
+                <div class="feature-card">
                     <span class="feature-icon">⌨️</span>
-                    <h3>다양한 키보드 배열</h3>
-                    <p>천지인, 나랏글, 쿼티, 단모음 등 한글 입력에 최적화된 모든 배열을 지원합니다.</p>
+                    <h3 data-ko="다양한 키보드 배열" data-en="Multiple Keyboard Layouts">다양한 키보드 배열</h3>
+                    <p data-ko="천지인, 나랏글, 쿼티, 단모음 등 한글 입력에 최적화된 모든 배열을 지원합니다."
+                       data-en="Supports major Korean layouts including Chunjiin, Naragle, QWERTY, and Danmoum.">천지인, 나랏글, 쿼티, 단모음 등 한글 입력에 최적화된 모든 배열을 지원합니다.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🚀</span>
-                    <h3>스크린 덱 (Screen Deck)</h3>
-                    <p>키보드 위에 떠 있는 나만의 도구 상자. 자주 쓰는 문구와 기능을 즉시 실행하세요.</p>
+                    <h3 data-ko="스크린 덱 (Screen Deck)" data-en="Screen Deck">스크린 덱 (Screen Deck)</h3>
+                    <p data-ko="키보드 위에 떠 있는 나만의 도구 상자. 자주 쓰는 문구와 기능을 즉시 실행하세요."
+                       data-en="Your personal toolbox above the keyboard. Launch frequently used phrases and actions instantly.">키보드 위에 떠 있는 나만의 도구 상자. 자주 쓰는 문구와 기능을 즉시 실행하세요.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎨</span>
-                    <h3>무한한 테마 & 폰트</h3>
-                    <p>수십 가지 프리셋과 사용자 정의 배경, 폰트로 세상에 하나뿐인 키보드를 디자인하세요.</p>
+                    <h3 data-ko="무한한 테마 & 폰트" data-en="Themes & Fonts">무한한 테마 & 폰트</h3>
+                    <p data-ko="수십 가지 프리셋과 사용자 정의 배경, 폰트로 세상에 하나뿐인 키보드를 디자인하세요."
+                       data-en="Design a keyboard that is truly yours with presets, custom backgrounds, and fonts.">수십 가지 프리셋과 사용자 정의 배경, 폰트로 세상에 하나뿐인 키보드를 디자인하세요.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">👆</span>
-                    <h3>직관적인 제스처</h3>
-                    <p>스와이프만으로 특수문자 입력, 커서 이동, 텍스트 삭제를 더 빠르게 처리합니다.</p>
+                    <h3 data-ko="직관적인 제스처" data-en="Intuitive Gestures">직관적인 제스처</h3>
+                    <p data-ko="스와이프만으로 특수문자 입력, 커서 이동, 텍스트 삭제를 더 빠르게 처리합니다."
+                       data-en="Use simple swipes to enter symbols, move the cursor, and delete text faster.">스와이프만으로 특수문자 입력, 커서 이동, 텍스트 삭제를 더 빠르게 처리합니다.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📁</span>
-                    <h3>스마트 유틸리티</h3>
-                    <p>클립보드 기록, 간단한 메모, 음성 인식 기능을 키보드 안에서 모두 해결하세요.</p>
+                    <h3 data-ko="스마트 유틸리티" data-en="Smart Utilities">스마트 유틸리티</h3>
+                    <p data-ko="클립보드 기록, 간단한 메모, 음성 인식 기능을 키보드 안에서 모두 해결하세요."
+                       data-en="Access clipboard history, quick notes, and voice input directly from your keyboard.">클립보드 기록, 간단한 메모, 음성 인식 기능을 키보드 안에서 모두 해결하세요.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔒</span>
-                    <h3>안전하고 가벼운 속도</h3>
-                    <p>개인정보를 수집하지 않으며, 초경량 엔진으로 어떤 환경에서도 끊김 없는 입력을 보장합니다.</p>
+                    <h3 data-ko="안전하고 가벼운 속도" data-en="Fast, Lightweight, and Private">안전하고 가벼운 속도</h3>
+                    <p data-ko="개인정보를 수집하지 않으며, 가벼운 엔진으로 빠르고 안정적인 입력을 제공합니다."
+                       data-en="Built for fast, stable typing with a lightweight engine and no unnecessary collection of personal data.">개인정보를 수집하지 않으며, 가벼운 엔진으로 빠르고 안정적인 입력을 제공합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">☁️</span>
+                    <h3 data-ko="프로필 클라우드 저장" data-en="Cloud Profile Backup">프로필 클라우드 저장</h3>
+                    <p data-ko="나만의 키보드 설정을 클라우드에 안전하게 보관하고 언제든 손쉽게 이전하세요."
+                       data-en="Safely back up your custom keyboard profile to the cloud and restore it whenever you need.">나만의 키보드 설정을 클라우드에 안전하게 보관하고 언제든 손쉽게 이전하세요.</p>
                 </div>
             </div>
         </div>
@@ -276,14 +259,35 @@
         <div class="container">
             <p>&copy; 2026 Wingul Team. All rights reserved.</p>
             <p style="margin-top: 10px; font-size: 0.8rem;">
-                <a href="privacy/" class="footer-link">개인정보처리방침</a> |
-                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="privacy/" class="footer-link" data-ko="개인정보처리방침" data-en="Privacy Policy">개인정보처리방침</a> |
+                <a href="#" class="footer-link" data-ko="이용약관" data-en="Terms of Service">이용약관</a>
             </p>
         </div>
     </footer>
 
     <script>
-        // Simple scroll reveal
+        const translations = document.querySelectorAll('[data-ko][data-en]');
+        const languageButtons = document.querySelectorAll('[data-lang-button]');
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            translations.forEach((element) => {
+                element.textContent = element.dataset[lang];
+            });
+            languageButtons.forEach((button) => {
+                button.classList.toggle('active', button.dataset.langButton === lang);
+            });
+            localStorage.setItem('wingul-language', lang);
+        }
+
+        languageButtons.forEach((button) => {
+            button.addEventListener('click', () => setLanguage(button.dataset.langButton));
+        });
+
+        const savedLanguage = localStorage.getItem('wingul-language');
+        const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith('ko') ? 'ko' : 'en';
+        setLanguage(savedLanguage || browserLanguage);
+
         window.addEventListener('scroll', () => {
             const cards = document.querySelectorAll('.feature-card');
             cards.forEach(card => {
@@ -295,14 +299,12 @@
             });
         });
 
-        // Initial state for feature cards
         document.querySelectorAll('.feature-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'all 0.6s ease-out';
         });
 
-        // Trigger reveal for cards initially in view
         window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
