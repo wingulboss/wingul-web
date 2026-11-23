@@ -38,10 +38,22 @@
   .copy { padding: 20px 24px 23px; }
   .copy h3 { font-size: 24px; letter-spacing: -.055em; }
   .copy p { margin: 5px 0 16px; color: #c4cede; font-size: 14px; }
-  .copy a { font-weight: 700; color: #afdaff; }
+  .card-links a { font-weight: 700; color: #afdaff; }
   .copy { display: flex; flex-direction: column; flex: 1; }
-  article { display: flex; flex-direction: column; }
+  article { position: relative; display: flex; flex-direction: column; }
+  .product-link::after { content: ""; position: absolute; inset: 0; }
+  article:focus-within { outline: 2px solid #a6d5ff; outline-offset: 3px; }
+  @media (hover: hover) {
+    article:hover { transform: translateY(-3px); border-color: #7195c5; box-shadow: 0 10px 24px #080d1780; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    article { transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    article:hover { transform: none; }
+  }
   .card-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; border-top: 1px solid #333e52; margin-top: auto; padding-top: 12px; font-size: 13px; }
+  .card-links a { position: relative; }
   footer { border-top: 1px solid #313a4a; }
   footer .wrap { min-height: 70px; color: #aab7ca; }
   footer small { font-size: 13px; }
@@ -73,26 +85,14 @@
   <section class="hero" aria-labelledby="studio">
     <div class="wrap">
       <h1 id="studio">
-        <svg class="studio-logo" viewBox="95 208 1090 830" role="img" aria-label="WINGUL XTUDIO">
-          <defs>
-            <clipPath id="wing-area"><rect width="1280" height="915"/></clipPath>
-            <clipPath id="letter-area"><rect y="915" width="1280" height="365"/></clipPath>
-            <filter id="remove-logo-paper" color-interpolation-filters="sRGB">
-              <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -2.5 0 0 0 2.35"/>
-            </filter>
-            <filter id="light-logo-letters" color-interpolation-filters="sRGB">
-              <feColorMatrix type="matrix" values="0 0 0 0 .92  0 0 0 0 .95  0 0 0 0 1  -1.18 0 0 0 1.13"/>
-            </filter>
-            <image id="original-logo" href="assets/studio-logo.png" width="1280" height="1280"/>
-          </defs>
-          <use href="#original-logo" clip-path="url(#wing-area)" filter="url(#remove-logo-paper)"/>
-          <use href="#original-logo" clip-path="url(#letter-area)" filter="url(#light-logo-letters)"/>
+        <svg class="studio-logo" viewBox="95 208 1067 806" role="img" aria-label="WINGUL XTUDIO">
+          <image href="assets/studio-logo.png" width="1254" height="1254"/>
         </svg>
       </h1>
       <div class="intro">
         <div>
-          <h2>입력부터 할일 정리까지</h2>
-          <p>윙글 스튜디오가 만드는 일상의 안드로이드 도구</p>
+          <h2>내 일상에 맞는 도구</h2>
+          <p>매일 하는 일을 내 방식대로, 조금 더 편하게.</p>
         </div>
         <a class="button" href="#lineup">제품 둘러보기 ↓</a>
       </div>
@@ -106,10 +106,9 @@
           <img class="app-icon" src="wingul-logo.png" alt="">
         </div>
         <div class="copy">
-          <h3>윙글 키보드</h3>
+          <h3><a class="product-link" href="keyboard/">윙글 키보드</a></h3>
           <p>다양한 한글 배열과 커스텀 키로 내 손에 맞는 입력 환경을 만드세요.</p>
           <div class="card-links">
-            <a href="keyboard/">키보드 소개 ↗</a>
             <a href="privacy/" aria-label="윙글 키보드 개인정보처리방침">개인정보처리방침 ↗</a>
           </div>
         </div>
@@ -119,7 +118,7 @@
           <img class="app-icon" src="assets/todomatrix-icon.svg" alt="">
         </div>
         <div class="copy">
-          <h3>투두매트릭스</h3>
+          <h3><a class="product-link" href="todomatrix/">투두매트릭스</a></h3>
           <p>할일을 중요도와 긴급도로 나누고, 루틴과 일정을 함께 관리하세요.</p>
           <div class="card-links">
             <a href="todomatrix/privacy/" aria-label="투두 매트릭스 개인정보처리방침">개인정보처리방침 ↗</a>
